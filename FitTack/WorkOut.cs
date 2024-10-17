@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace FitTack
 {
-    internal class WorkOut
+    public abstract class WorkOut
     {
+        public DateTime Date {  get; set; }
+        public string Type { get; set; }
+        public TimeSpan Duration { get; set; }
+        public int CaloriesBurned { get; set; }
     }
 }

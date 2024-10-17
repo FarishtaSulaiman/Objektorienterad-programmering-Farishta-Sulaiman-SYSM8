@@ -6,7 +6,17 @@ using System.Threading.Tasks;
 
 namespace FitTack
 {
-    internal class AdminUser
+    public class AdminUser : User
     {
+
+        public AdminUser(string UserName,  string Password, string Country, string SecurityQuestion, string SecurityAnswer) : base(UserName, Password, Country, SecurityQuestion, SecurityAnswer)
+        {
+
+        }
+
+        public void ManageAllWorukouts()
+        {
+            // logik för att hantera alla användarnas träningspass 
+        }
     }
 }

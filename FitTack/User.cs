@@ -28,7 +28,7 @@ namespace FitTack
             this.SecurityAnswer = SecurityAnswer;
         }
 
-       public override string SignIn()
+       public override void SignIn()
         {
             // logik för inlogg 
         }
@@ -38,7 +38,7 @@ namespace FitTack
 
         public void ResetPassword(string SecurityAnswer)
         {
-            if (SecurityAnswer == SecurityAnswer)
+            if (this.SecurityAnswer == SecurityAnswer)
             {
                 // logik för återställande av lösenord
             }
