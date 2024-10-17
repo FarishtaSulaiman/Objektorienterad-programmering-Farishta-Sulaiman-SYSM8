@@ -6,7 +6,43 @@ using System.Threading.Tasks;
 
 namespace FitTack
 {
-    public class User
+    public class User : Person
+
     {
+
+        // property 
+        public string Country { get; set; }
+
+        public string SecurityQuestion { get; set; }
+
+        public string SecurityAnswer { get; set; }
+
+
+        // konstruktor 
+
+        public User(string UserName, string PassWord, string Country, string SecurityQuestion, string SecurityAnswer) : base(UserName, PassWord)
+        {
+
+            this.Country = Country;
+            this.SecurityQuestion = SecurityQuestion;
+            this.SecurityAnswer = SecurityAnswer;
+        }
+
+       public override string SignIn()
+        {
+            // logik för inlogg 
+        }
+
+
+
+
+        public void ResetPassword(string SecurityAnswer)
+        {
+            if (SecurityAnswer == SecurityAnswer)
+            {
+                // logik för återställande av lösenord
+            }
+        }
     }
+    
 }
