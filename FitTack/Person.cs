@@ -21,7 +21,6 @@ namespace FitTack
 
         }
 
-
         // metod 
         public abstract string SignIn();
 

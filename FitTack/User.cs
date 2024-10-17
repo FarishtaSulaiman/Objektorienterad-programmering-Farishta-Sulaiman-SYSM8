@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FitTack
 {
-    internal class User
+    public class User
     {
     }
 }
