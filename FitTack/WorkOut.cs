@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FitTack
 {
-    public abstract class WorkOut
+    public abstract class WorkOut // bas för olika typer av träningspass 
     {
         public DateTime Date {  get; set; }
         public string Type { get; set; }
@@ -23,5 +23,7 @@ namespace FitTack
             Notes = notes;
 
         }
+
+        public abstract int CalculateCaloriesBurned();
     }
 }

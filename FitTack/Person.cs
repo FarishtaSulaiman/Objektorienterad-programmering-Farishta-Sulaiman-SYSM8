@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FitTack
 {
-    public abstract class Person
+    public abstract class Person // denna klass fungerar som bas för användare 
     {
 
         // property
@@ -14,15 +14,18 @@ namespace FitTack
         public string PassWord { get; set; }
 
         // konstruktor
-        public Person(string UserName, string PassWord)
+        public Person(string userName, string passWord)
         {
-            this.UserName = UserName;
-            this.PassWord = PassWord;
+            UserName = userName;
+            PassWord = passWord;
 
         }
 
-        // metod 
-        public abstract string SignIn();
+        //  abstrakt metod utan implementering, det är underklasserna som måste implementera den 
+        public abstract void SignIn();
+        
+
+        
 
     }
 }
