@@ -50,7 +50,7 @@ namespace FitTack
                 return;
             }
 
-            // Simulera återställning av lösenord
+            // återställning av lösenord
             if (username == "admin") // Exempel
             {
                 string securityQuestion = "Vad är ditt favoritdjur?";

@@ -17,6 +17,7 @@
                    Margin="0,30,0,0"/>
 
         <!-- Inputfält för användarnamn -->
+        
         <TextBox x:Name="UsernameInput" Width="250" Height="30"
                  Margin="0,100,0,0" HorizontalAlignment="Center"
                  VerticalAlignment="Top" />
@@ -33,7 +34,7 @@
                 Margin="0,200,0,0" Click="SignIn_Click"/>
 
         <!-- Glömt lösenord-knapp -->
-        <Button Content="Glömt lösenord?" Width="150" Height="30"
+        <Button Content="Forgot Password?" Width="150" Height="30"
                 Background="White" Foreground="#DC143C" FontSize="14"
                 HorizontalAlignment="Center" VerticalAlignment="Top"
                 Margin="0,250,0,0" Click="ForgotPassword_Click"/>

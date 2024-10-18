@@ -15,21 +15,18 @@ using System.Windows.Shapes;
 namespace FitTack.View
 {
     /// <summary>
-    /// Interaction logic for SplayScreen.xaml
+    /// Interaction logic for SplashScreen.xaml
     /// </summary>
-    public partial class SplayScreen : Window
+    public partial class SplashScreen : Window
     {
-        public SplayScreen()
+        public SplashScreen()
         {
             InitializeComponent();
+            DataContext = new ViewModel.SplashScreenViewModel();
         }
-        // Hantera "Get Started"-knappens 
-        private void GetStarted_Click(object sender, RoutedEventArgs e)
-        {
-            MainWindow mainWindow = new MainWindow();
-            mainWindow.Show();
-            this.Close(); // Stäng SplashScreen
-        }
+
+
+      
     }
 }
     
