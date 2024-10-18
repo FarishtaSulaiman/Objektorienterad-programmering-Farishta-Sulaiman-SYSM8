@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FitTack
+namespace FitTack.Model
 {
     public abstract class Person // denna klass fungerar som bas för användare 
     {
@@ -23,9 +23,9 @@ namespace FitTack
 
         //  abstrakt metod utan implementering, det är underklasserna som måste implementera den 
         public abstract void SignIn();
-        
 
-        
+
+
 
     }
 }

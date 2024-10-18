@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FitTack
+namespace FitTack.Model
 {
     public abstract class WorkOut // bas för olika typer av träningspass 
     {
-        public DateTime Date {  get; set; }
+        public DateTime Date { get; set; }
         public string Type { get; set; }
         public TimeSpan Duration { get; set; }
         public int CaloriesBurned { get; set; }

@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FitTack
+namespace FitTack.Model
 {
     public class CardioWorkout : WorkOut // implementerar abstrakta metoden calculatecaloriesburned 
     {
 
-        public int Distance {  get; set; }
+        public int Distance { get; set; }
 
         public CardioWorkout(DateTime date, string type, TimeSpan duration, int caloriesBurned, string notes, int distance) : base(date, type, duration, caloriesBurned, notes)
         {

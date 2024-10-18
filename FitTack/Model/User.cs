@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FitTack
+namespace FitTack.Model
 {
     public class User : Person // lägger till ytterliggare egenskaper och metoder
 
@@ -15,7 +15,17 @@ namespace FitTack
 
         public string SecurityQuestion { get; set; }
 
-        public string SecurityAnswer { get; set; }
+        public string SecurityAnswer
+        {
+            get
+            {
+               return SecurityAnswer;
+            }
+            set
+            {
+                SecurityAnswer = value;
+            }
+        }
 
 
         // konstruktor 
@@ -23,9 +33,9 @@ namespace FitTack
         public User(string userName, string passWord, string country, string securityQuestion, string securityAnswer) : base(userName, passWord)
         {
 
-            this.Country = country;
-            this.SecurityQuestion = securityQuestion;
-            this.SecurityAnswer = securityAnswer;
+            Country = country;
+            SecurityQuestion = securityQuestion;
+            SecurityAnswer = securityAnswer;
         }
 
         public override void SignIn()
@@ -43,7 +53,7 @@ namespace FitTack
 
         private void ResetPassword(string securityAnswer)
         {
-            if (SecurityAnswer == SecurityAnswer)
+            if (SecurityAnswer == securityAnswer)
             {
                 Console.WriteLine("Lösenord återställs. Ange ett nytt lösenord.");
                 //OBS! måste lägga till logik sen för att uppdatera lösenord 
