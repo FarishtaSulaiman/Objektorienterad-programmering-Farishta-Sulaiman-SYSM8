@@ -39,6 +39,9 @@ namespace FitTack
             }
         }
 
+
+
+
         // Hantera "Glömt lösenord"
         private void ForgotPassword_Click(object sender, RoutedEventArgs e)
         {
