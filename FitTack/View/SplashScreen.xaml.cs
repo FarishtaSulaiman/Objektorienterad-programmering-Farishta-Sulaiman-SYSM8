@@ -23,5 +23,14 @@ namespace FitTack.View
         {
             InitializeComponent();
         }
+        // Hantera "Get Started"-knappens 
+        private void GetStarted_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            this.Close(); // Stäng SplashScreen
+        }
     }
 }
+    
+

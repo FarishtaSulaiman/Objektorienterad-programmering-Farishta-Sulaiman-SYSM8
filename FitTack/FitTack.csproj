@@ -8,4 +8,12 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Bilder\löpare.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Bilder\löpare.png" />
+  </ItemGroup>
+
 </Project>

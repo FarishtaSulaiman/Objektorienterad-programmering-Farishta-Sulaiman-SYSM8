@@ -5,8 +5,43 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FitTack"
         mc:Ignorable="d"
-        Title="FitTrack" Height="450" Width="800">
-    <Grid>
+       Title="FitTrack - Login" Height="400" Width="450" 
+        WindowStartupLocation="CenterScreen" ResizeMode="NoResize"
+        Background="#D3D3D3">
 
+    <Grid>
+        <!-- Välkomsttext -->
+        <TextBlock Text="Login to FitTrack" FontSize="30" FontWeight="Bold" 
+                   FontFamily="Arial" Foreground="#DC143C"
+                   HorizontalAlignment="Center" VerticalAlignment="Top"
+                   Margin="0,30,0,0"/>
+
+        <!-- Inputfält för användarnamn -->
+        <TextBox x:Name="UsernameInput" Width="250" Height="30"
+                 Margin="0,100,0,0" HorizontalAlignment="Center"
+                 VerticalAlignment="Top" />
+
+        <!-- Inputfält för lösenord -->
+        <PasswordBox x:Name="PasswordInput" Width="250" Height="30"
+                     Margin="0,150,0,0" HorizontalAlignment="Center"
+                     VerticalAlignment="Top"/>
+
+        <!-- Sign In-knapp -->
+        <Button Content="Sign In" Width="150" Height="40"
+                Background="#DC143C" Foreground="White" FontSize="16"
+                HorizontalAlignment="Center" VerticalAlignment="Top"
+                Margin="0,200,0,0" Click="SignIn_Click"/>
+
+        <!-- Glömt lösenord-knapp -->
+        <Button Content="Glömt lösenord?" Width="150" Height="30"
+                Background="White" Foreground="#DC143C" FontSize="14"
+                HorizontalAlignment="Center" VerticalAlignment="Top"
+                Margin="0,250,0,0" Click="ForgotPassword_Click"/>
+
+        <!-- Register-knapp -->
+        <Button Content="Register" Width="150" Height="40"
+                Background="White" Foreground="#DC143C" FontSize="16"
+                HorizontalAlignment="Center" VerticalAlignment="Top"
+                Margin="0,300,0,0" Click="Register_Click"/>
     </Grid>
 </Window>
