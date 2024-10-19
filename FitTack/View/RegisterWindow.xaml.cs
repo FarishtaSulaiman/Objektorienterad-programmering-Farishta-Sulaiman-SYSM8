@@ -18,10 +18,30 @@ namespace FitTack.View
     /// Interaction logic for RegisterWindow.xaml
     /// </summary>
     public partial class RegisterWindow : Window
-    {
-        public RegisterWindow()
         {
-            InitializeComponent();
+            public RegisterWindow()
+            {
+                InitializeComponent();
+                DataContext = new ViewModel.RegisterWindowViewModel();
+            }
+
+            // Hantera lösenordsinmatning
+            private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
+            {
+                var viewModel = DataContext as ViewModel.RegisterWindowViewModel;
+                if (viewModel != null)
+                {
+                    viewModel.PasswordBox_PasswordChanged(sender, e);
+                }
+            }
+
+            // Hantera bekräftelse-lösenordsinmatning
+            private void ConfirmPasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
+            {
+            if (DataContext is ViewModel.RegisterWindowViewModel viewModel)
+            {
+                viewModel.ConfirmPasswordBox_PasswordChanged(sender, e);
+            }
+        }
         }
     }
-}

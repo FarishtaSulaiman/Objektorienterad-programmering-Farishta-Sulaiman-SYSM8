@@ -29,7 +29,7 @@ namespace FitTack
             private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
             {
                 // Använd ett annat namn för variabeln, t.ex. "pwdBox"
-                PasswordBox pwdBox = sender as PasswordBox;
+                PasswordBox? pwdBox = sender as PasswordBox;
 
                 // Kontrollerar att DataContext är satt korrekt till ViewModel
                 var viewModel = this.DataContext as MainWindowViewModel;

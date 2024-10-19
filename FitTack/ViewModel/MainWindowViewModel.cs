@@ -75,8 +75,12 @@ namespace FitTack.ViewModel
         // Logik för Register-knappen
         private void Register(object parameter)
         {
-            MessageBox.Show("Öppna registreringsfönstret.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
-            // Här skulle logik för att öppna ett nytt registerfönster läggas till
+            // RegisterWindow öppnas
+            var registerWindow = new View.RegisterWindow();
+            registerWindow.Show();
+            Application.Current.Windows[0]?.Close(); // stänga Mainwindow
+
+            
         }
     }
 }
