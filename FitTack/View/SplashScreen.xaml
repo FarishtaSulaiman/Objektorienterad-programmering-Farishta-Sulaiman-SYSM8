@@ -11,11 +11,7 @@
 
 
     
-    <Window.DataContext>
-        <!-- Bind till SplashScreenViewModel -->
-        <vm:SplashScreenViewModel/>
-    </Window.DataContext>
-
+    
 
     <Grid>
         <!-- Bakgrundsbild -->

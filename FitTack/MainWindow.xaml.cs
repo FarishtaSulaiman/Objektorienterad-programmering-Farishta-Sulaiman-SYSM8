@@ -1,4 +1,5 @@
 ﻿using FitTack.View;
+using FitTack.ViewModel;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -19,70 +20,84 @@ namespace FitTack
     {
         public MainWindow()
         {
-            InitializeComponent();
-        }
-        // Inloggningslogik
-        private void SignIn_Click(object sender, RoutedEventArgs e)
-        {
-            string username = UsernameInput.Text;
-            string password = PasswordInput.Password;
-
-            // Enkel validering för exempel
-            if (username == "admin" && password == "admin123") // Simulera inloggning
-            {
-                MessageBox.Show("Inloggning lyckades!", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
-                // Öppna huvudfönstret för användaren eller träningsfönster
-            }
-            else
-            {
-                MessageBox.Show("Fel användarnamn eller lösenord.", "Fel", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-        }
-
-
-
-
-        // Hantera "Glömt lösenord"
-        private void ForgotPassword_Click(object sender, RoutedEventArgs e)
-        {
-            string username = UsernameInput.Text;
-
-            if (string.IsNullOrEmpty(username))
-            {
-                MessageBox.Show("Ange ditt användarnamn för att återställa lösenord.", "Fel", MessageBoxButton.OK, MessageBoxImage.Warning);
-                return;
+        
+                InitializeComponent();
+                DataContext = new MainWindowViewModel();
             }
 
-            // återställning av lösenord
-            if (username == "admin") // Exempel
+            // Event för PasswordBox när lösenordet ändras
+            private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
             {
-                string securityQuestion = "Vad är ditt favoritdjur?";
-                string correctAnswer = "hund";
+                // Använd ett annat namn för variabeln, t.ex. "pwdBox"
+                PasswordBox pwdBox = sender as PasswordBox;
 
-                string answer = Microsoft.VisualBasic.Interaction.InputBox(securityQuestion, "Säkerhetsfråga");
-
-                if (answer.ToLower() == correctAnswer.ToLower())
+                // Kontrollerar att DataContext är satt korrekt till ViewModel
+                var viewModel = this.DataContext as MainWindowViewModel;
+                if (viewModel != null)
                 {
-                    MessageBox.Show("Lösenordet har återställts till 'admin123'.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                    // Uppdaterar lösenordet i ViewModel
+                    viewModel.Password = pwdBox.Password;
+                }
+            }
+
+            // Inloggningslogik (för Sign In-knappen)
+            private void SignIn_Click(object sender, RoutedEventArgs e)
+            {
+                var viewModel = this.DataContext as MainWindowViewModel;
+                string username = viewModel.Username;
+                string password = viewModel.Password;
+
+                if (username == "admin" && password == "admin123")
+                {
+                    MessageBox.Show("Inloggning lyckades!", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
                 else
                 {
-                    MessageBox.Show("Fel svar på säkerhetsfrågan.", "Fel", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show("Fel användarnamn eller lösenord.", "Fel", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
-            else
+
+            // Hantera "Glömt lösenord"
+            private void ForgotPassword_Click(object sender, RoutedEventArgs e)
             {
-                MessageBox.Show("Användarnamnet existerar inte.", "Fel", MessageBoxButton.OK, MessageBoxImage.Error);
+                var viewModel = this.DataContext as MainWindowViewModel;
+                string username = viewModel.Username;
+
+                if (string.IsNullOrEmpty(username))
+                {
+                    MessageBox.Show("Ange ditt användarnamn för att återställa lösenord.", "Fel", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
+                }
+
+                if (username == "admin")
+                {
+                    string securityQuestion = "Vad är ditt favoritdjur?";
+                    string correctAnswer = "hund";
+
+                    string answer = Microsoft.VisualBasic.Interaction.InputBox(securityQuestion, "Säkerhetsfråga");
+
+                    if (answer.ToLower() == correctAnswer.ToLower())
+                    {
+                        MessageBox.Show("Lösenordet har återställts till 'admin123'.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Fel svar på säkerhetsfrågan.", "Fel", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Användarnamnet existerar inte.", "Fel", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+
+            // Öppna registreringsfönstret
+            private void Register_Click(object sender, RoutedEventArgs e)
+            {
+                RegisterWindow registerWindow = new RegisterWindow();
+                registerWindow.Show();
+                this.Close(); // Stäng MainWindow
             }
         }
-
-        // Öppna registreringsfönstret
-        private void Register_Click(object sender, RoutedEventArgs e)
-        {
-            RegisterWindow registerWindow = new RegisterWindow();
-            registerWindow.Show();
-            this.Close(); // Stäng MainWindow
-        }
     }
-}
-    
+
