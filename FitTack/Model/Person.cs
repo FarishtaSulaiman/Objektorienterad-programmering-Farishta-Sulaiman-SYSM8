@@ -24,9 +24,8 @@ namespace FitTack.Model
         //  abstrakt metod utan implementering, det är underklasserna som måste implementera den 
         public abstract void SignIn();
 
-
-
-
     }
+
+
 }
 

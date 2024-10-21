@@ -19,7 +19,6 @@ namespace FitTack.ViewModel
         public ICommand SignInCommand { get; }
         public ICommand ForgotPasswordCommand { get; }
         public ICommand RegisterCommand { get; }
-        public RegisterWindowViewModel DataContext { get; private set; }
 
         public MainWindowViewModel()
         {
@@ -32,6 +31,7 @@ namespace FitTack.ViewModel
         // Logik för Sign In-knappen
         private void SignIn(object parameter)
         {
+            // Enkla inloggningsregler (kan utökas med riktig användarhantering)
             if (Username == "admin" && Password == "Admin321!")
             {
                 MessageBox.Show("Inloggning lyckades!", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -39,14 +39,6 @@ namespace FitTack.ViewModel
             else
             {
                 MessageBox.Show("Fel användarnamn eller lösenord.", "Fel", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-
-            var viewModel = DataContext as ViewModel.RegisterWindowViewModel;
-            if (viewModel != null)
-            {
-                MessageBox.Show("hejhej");
-                
-                //  viewModel.PasswordBox_PasswordChanged /// kolla och gör rätt" 
             }
         }
 
@@ -87,9 +79,9 @@ namespace FitTack.ViewModel
             // RegisterWindow öppnas
             var registerWindow = new View.RegisterWindow();
             registerWindow.Show();
-            Application.Current.Windows[0]?.Close(); // stänga Mainwindow
 
-            
+            // Stäng MainWindow
+            Application.Current.MainWindow?.Close();  // Stänger huvudfönstret
         }
     }
 }
