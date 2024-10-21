@@ -10,25 +10,25 @@ using System.Windows.Input;
 namespace FitTack.ViewModel
 {
     public class SplashScreenViewModel : ViewModelBase
-    {
-
-
-        // Kommandot som körs när "Get Started"-knappen klickas
-        public ICommand GetStartedCommand { get; }
-
-        public SplashScreenViewModel()
+   
         {
-            GetStartedCommand = new RelayCommand(OpenMainWindow);
-        }
+            // Kommando som körs när "Get Started"-knappen klickas
+            public ICommand GetStartedCommand { get; }
 
-        private void OpenMainWindow(object parameter)
-        {
-            // Logik för att öppna MainWindow och stänga SplashScreen
-            MainWindow mainWindow = new MainWindow();
-            mainWindow.Show();
+            public SplashScreenViewModel()
+            {
+                // Skapa kommandot och binda det till metoden OpenMainWindow
+                GetStartedCommand = new RelayCommand(OpenMainWindow);
+            }
 
-            // Stäng fönstret SplashScreen
-            Application.Current.Windows[0].Close();
+            private void OpenMainWindow(object parameter)
+            {
+                // Öppna huvudfönstret (MainWindow) och stäng splash screen
+                var mainWindow = new View.MainWindow();
+                mainWindow.Show();
+
+                // Stäng SplashScreen (det första fönstret)
+                Application.Current.Windows[0]?.Close();
+            }
         }
     }
-}

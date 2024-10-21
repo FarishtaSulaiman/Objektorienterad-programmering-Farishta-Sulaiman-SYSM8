@@ -10,9 +10,9 @@
         WindowStyle="None" AllowsTransparency="True" Background="#D3D3D3">
 
     <Window.DataContext>
-        <!-- Bind till SplashScreenViewModel -->
+        <!-- Binder till SplashScreenViewModel -->
         <vm:SplashScreenViewModel />
-    </Window.DataContext>
+        </Window.DataContext>
 
     <Grid>
         <!-- Bakgrundsbild -->
