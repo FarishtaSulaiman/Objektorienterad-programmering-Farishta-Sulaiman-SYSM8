@@ -1,4 +1,5 @@
 ﻿using FitTack.MVVM;
+using FitTack.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,47 +19,14 @@ namespace FitTack.View
     /// <summary>
     /// Interaction logic for RegisterWindow.xaml
     /// </summary>
-    public class RegisterWindowViewModel : ViewModelBase
+    public partial class RegisterWindow : Window
     {
-        private readonly IWindowFactory _windowFactory;
-
-        public string Username { get; set; }
-        public string Password { get; set; }
-        public ICommand RegisterCommand { get; }
-        public ICommand CancelCommand { get; }
-
-        public RegisterWindowViewModel(IWindowFactory windowFactory)
+        public RegisterWindow()
         {
-            _windowFactory = windowFactory;
+            InitializeComponent();
 
-            // Initialisera kommandon
-            RegisterCommand = new RelayCommand(RegisterUser);
-            CancelCommand = new RelayCommand(CancelRegistration);
-        }
-
-        private void RegisterUser(object parameter)
-        {
-            // Enkel validering och registreringslogik
-            if (string.IsNullOrEmpty(Username) || string.IsNullOrEmpty(Password))
-            {
-                MessageBox.Show("Fyll i alla fält.", "Fel", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
-
-            // Här kan du lägga till logik för att spara användaren i din lista eller databas
-
-            MessageBox.Show("Användaren har registrerats!", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
-
-            // Efter framgångsrik registrering, stäng RegisterWindow och öppna MainWindow
-            _windowFactory.CloseWindow(); // Stäng RegisterWindow
-            _windowFactory.ShowMainWindow(); // Öppna MainWindow
-        }
-
-        private void CancelRegistration(object parameter)
-        {
-            // Om användaren avbryter, stäng RegisterWindow och öppna MainWindow
-            _windowFactory.CloseWindow();
-            _windowFactory.ShowMainWindow();
+            // Sätter ViewModel som datakontot för fönstret
+            DataContext = new RegisterWindowViewModel(new WindowFactory());
         }
     }
 }

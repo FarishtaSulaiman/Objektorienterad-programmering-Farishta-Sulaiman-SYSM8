@@ -10,13 +10,12 @@ namespace FitTack
     /// </summary>
     public partial class App : Application
     {
-        {
             protected override void OnStartup(StartupEventArgs e)
             {
                 base.OnStartup(e);
 
                 // Skapa en instans av WindowFactory
-                var windowFactory = new WindowFactory();
+                var windowFactory = new MVVM.WindowFactory();
 
                 // Skapa MainWindowViewModel och injicera windowFactory
                 var mainWindowViewModel = new MainWindowViewModel(windowFactory);

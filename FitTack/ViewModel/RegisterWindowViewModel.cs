@@ -14,7 +14,6 @@ namespace FitTack.ViewModel
 {
     public class RegisterWindowViewModel : ViewModelBase
     {
-
         // Egenskaper
         public string Username { get; set; }
         private string Password { get; set; }
@@ -23,19 +22,16 @@ namespace FitTack.ViewModel
         public string SelectedCountry { get; set; }
 
         // Kommando för att registrera användaren
-        public ICommand RegisterCommand { get; }   
+        public ICommand RegisterCommand { get; }
 
-        public RegisterWindowViewModel()
+        public RegisterWindowViewModel(WindowFactory windowFactory)
         {
-            // Fyller ComboBox med länder som jag valt 
-            Countries = ["Sverige", "Norge", "Finland", "Danmark"];
+            // Fyller ComboBox med länder
+            Countries = new ObservableCollection<string> { "Sverige", "Norge", "Finland", "Danmark" };
 
             // Initialisering av kommando
             RegisterCommand = new RelayCommand(Register);
-
         }
-
-       
 
         // Hanterar lösenord-input från PasswordBox
         public void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
@@ -85,27 +81,18 @@ namespace FitTack.ViewModel
             // Användaren har registrerats 
             MessageBox.Show($"Användaren {Username} har registrerats framgångsrikt!", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
 
+            // Stäng RegisterWindow och öppna MainWindow
             Application.Current.MainWindow.Close();
             OpenMainWindow();
         }
+
         private void OpenMainWindow()
         {
-            //// stäng registerfönstret 
-            //application.current.windows[0]?.close();
+            var newMainWindow = new MainWindow();
+            newMainWindow.Show();
 
-            //// öppna ett nytt mainwindow 
-            //var newmainwindow = new view.mainwindow();
-            //newmainwindow.show();
-
-            //// Skapa en ny instans av MainWindow
-            //MainWindow mainWindow = new MainWindow();
-
-            //// Sätt det nya fönstret som huvudfönster och visa det
-            //Application.Current.MainWindow = mainWindow;
-            //mainWindow.Show();
-        }
+            // Sätt det nya fönstret som huvudfönster
+            Application.Current.MainWindow = newMainWindow;
         }
     }
-
-    
-
+}

@@ -35,12 +35,12 @@
         <!-- Password Label -->
         <TextBlock Text="Password" Grid.Row="3" HorizontalAlignment="Left" Margin="0,10,0,15" FontWeight="SemiBold"/>
         <!-- Password Input -->
-        <PasswordBox Width="250" Height="25" Grid.Row="3" HorizontalAlignment="Left" PasswordChanged="PasswordBox_PasswordChanged" Margin="-1,26,0,15" Grid.RowSpan="2"/>
+        <PasswordBox Width="250" Height="25" Grid.Row="3" HorizontalAlignment="Left"  Margin="-1,26,0,15" Grid.RowSpan="2"/>
 
         <!-- Confirm Password Label -->
         <TextBlock Text="Confirm Password" Grid.Row="4" HorizontalAlignment="Left" Margin="0,10,0,30" FontWeight="SemiBold" Grid.RowSpan="2"/>
         <!-- Confirm Password Input -->
-        <PasswordBox Width="250" Height="25" Grid.Row="5" HorizontalAlignment="Left" PasswordChanged="ConfirmPasswordBox_PasswordChanged" Margin="-1,10,0,15"/>
+        <PasswordBox Width="250" Height="25" Grid.Row="5" HorizontalAlignment="Left"  Margin="-1,10,0,15"/>
 
         <!-- Country ComboBox -->
         <TextBlock Text="Country" Grid.Row="5" HorizontalAlignment="Left" Margin="-1,47,0,33" FontWeight="SemiBold" Grid.RowSpan="3"/>

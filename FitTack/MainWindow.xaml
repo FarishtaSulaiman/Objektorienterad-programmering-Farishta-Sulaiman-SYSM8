@@ -50,7 +50,7 @@
         <!-- PasswordBox med PasswordChanged-event -->
         <PasswordBox Width="250" Height="30"
                      HorizontalAlignment="Center"
-                     PasswordChanged="PasswordBox_PasswordChanged" Grid.Row="4"/>
+                     Grid.Row="4"/>
 
         <!-- Sign In-knappen -->
         <Button Content="Sign In" Width="150" Height="40"

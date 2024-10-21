@@ -6,10 +6,7 @@ using System.Threading.Tasks;
 
 namespace FitTack
 {
-    public interface IWindowFactory
-    {
-        void CloseWindow();
-        void ShowRegisterWindow();
+ 
 
         public interface IWindowFactory
         {
@@ -17,5 +14,5 @@ namespace FitTack
             void ShowRegisterWindow();  // Metod för att öppna RegisterWindow
             void CloseWindow();   // Metod för att stänga nuvarande fönster
         }
-    }
+    
 }
