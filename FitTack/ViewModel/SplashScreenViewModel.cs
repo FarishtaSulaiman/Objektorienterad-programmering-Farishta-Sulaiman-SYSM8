@@ -23,7 +23,7 @@ namespace FitTack.ViewModel
 
             private void OpenMainWindow(object parameter)
             {
-                // Öppna huvudfönstret (MainWindow) och stäng splash screen
+                // Öppna huvudfönstret (MainWindow) och stäng splashscreen
                 var mainWindow = new View.MainWindow();
                 mainWindow.Show();
 

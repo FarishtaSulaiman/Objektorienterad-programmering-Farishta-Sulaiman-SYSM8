@@ -19,15 +19,13 @@ namespace FitTack.View
     /// </summary>
     public partial class SplashScreen : Window
     {
-        public SplashScreen()
-        {
-            InitializeComponent();
-            DataContext = new ViewModel.SplashScreenViewModel();
+            public SplashScreen()
+            {
+                InitializeComponent();
+            }
+
+
         }
-
-
-      
-    }
 }
     
 
