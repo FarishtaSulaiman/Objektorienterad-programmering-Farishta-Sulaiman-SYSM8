@@ -19,45 +19,46 @@ namespace FitTack.View
     /// Interaction logic for RegisterWindow.xaml
     /// </summary>
     public class RegisterWindowViewModel : ViewModelBase
-{
-    private readonly IWindowFactory _windowFactory;
-
-    public string Username { get; set; }
-    public string Password { get; set; }
-    public ICommand RegisterCommand { get; }
-    public ICommand CancelCommand { get; }
-
-    public RegisterWindowViewModel(IWindowFactory windowFactory)
     {
-        _windowFactory = windowFactory;
+        private readonly IWindowFactory _windowFactory;
 
-        // Initialisera kommandon
-        RegisterCommand = new RelayCommand(RegisterUser);
-        CancelCommand = new RelayCommand(CancelRegistration);
-    }
+        public string Username { get; set; }
+        public string Password { get; set; }
+        public ICommand RegisterCommand { get; }
+        public ICommand CancelCommand { get; }
 
-    private void RegisterUser(object parameter)
-    {
-        // Enkel validering och registreringslogik
-        if (string.IsNullOrEmpty(Username) || string.IsNullOrEmpty(Password))
+        public RegisterWindowViewModel(IWindowFactory windowFactory)
         {
-            MessageBox.Show("Fyll i alla fält.", "Fel", MessageBoxButton.OK, MessageBoxImage.Error);
-            return;
+            _windowFactory = windowFactory;
+
+            // Initialisera kommandon
+            RegisterCommand = new RelayCommand(RegisterUser);
+            CancelCommand = new RelayCommand(CancelRegistration);
         }
 
-        // Här kan du lägga till logik för att spara användaren i din lista eller databas
+        private void RegisterUser(object parameter)
+        {
+            // Enkel validering och registreringslogik
+            if (string.IsNullOrEmpty(Username) || string.IsNullOrEmpty(Password))
+            {
+                MessageBox.Show("Fyll i alla fält.", "Fel", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
 
-        MessageBox.Show("Användaren har registrerats!", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+            // Här kan du lägga till logik för att spara användaren i din lista eller databas
 
-        // Efter framgångsrik registrering, stäng RegisterWindow och öppna MainWindow
-        _windowFactory.CloseWindow(); // Stäng RegisterWindow
-        _windowFactory.ShowMainWindow(); // Öppna MainWindow
-    }
+            MessageBox.Show("Användaren har registrerats!", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
 
-    private void CancelRegistration(object parameter)
-    {
-        // Om användaren avbryter, stäng RegisterWindow och öppna MainWindow
-        _windowFactory.CloseWindow();
-        _windowFactory.ShowMainWindow();
+            // Efter framgångsrik registrering, stäng RegisterWindow och öppna MainWindow
+            _windowFactory.CloseWindow(); // Stäng RegisterWindow
+            _windowFactory.ShowMainWindow(); // Öppna MainWindow
+        }
+
+        private void CancelRegistration(object parameter)
+        {
+            // Om användaren avbryter, stäng RegisterWindow och öppna MainWindow
+            _windowFactory.CloseWindow();
+            _windowFactory.ShowMainWindow();
+        }
     }
 }

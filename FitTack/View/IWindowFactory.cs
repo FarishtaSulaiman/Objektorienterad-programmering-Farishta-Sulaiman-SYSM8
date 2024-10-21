@@ -2,5 +2,7 @@
 {
     internal interface IWindowFactory
     {
+        void CloseWindow();
+        void ShowMainWindow();
     }
 }

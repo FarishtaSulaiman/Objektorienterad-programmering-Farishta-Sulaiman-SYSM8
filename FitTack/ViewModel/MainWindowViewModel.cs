@@ -11,6 +11,8 @@ namespace FitTack.ViewModel
 {
     public class MainWindowViewModel : ViewModelBase
     {
+        private readonly IWindowFactory _windowFactory;
+
         // Egenskaper för användarnamn och lösenord
         public string Username { get; set; }
         public string Password { get; set; }
@@ -20,8 +22,11 @@ namespace FitTack.ViewModel
         public ICommand ForgotPasswordCommand { get; }
         public ICommand RegisterCommand { get; }
 
-        public MainWindowViewModel()
+        // Injectera IWindowFactory i konstruktorn
+        public MainWindowViewModel(IWindowFactory windowFactory)
         {
+            _windowFactory = windowFactory;
+
             // Initialisera kommandon och koppla dem till funktionerna
             SignInCommand = new RelayCommand(SignIn);
             ForgotPasswordCommand = new RelayCommand(ForgotPassword);
@@ -76,12 +81,9 @@ namespace FitTack.ViewModel
         // Logik för Register-knappen
         private void Register(object parameter)
         {
-            // RegisterWindow öppnas
-            var registerWindow = new View.RegisterWindow();
-            registerWindow.Show();
-
-            // Stäng MainWindow
-            Application.Current.MainWindow?.Close();  // Stänger huvudfönstret
+            // Använd WindowFactory för att öppna RegisterWindow och stänga MainWindow
+            _windowFactory.ShowRegisterWindow();  // Öppna RegisterWindow
+            _windowFactory.CloseWindow();  // Stäng MainWindow
         }
     }
 }

@@ -8,6 +8,9 @@ namespace FitTack
 {
     public interface IWindowFactory
     {
+        void CloseWindow();
+        void ShowRegisterWindow();
+
         public interface IWindowFactory
         {
             void ShowMainWindow();    // Metod för att öppna MainWindow
