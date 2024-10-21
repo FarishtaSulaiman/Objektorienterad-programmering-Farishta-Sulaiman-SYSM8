@@ -9,7 +9,7 @@ using System.Windows.Input;
 
 namespace FitTack.ViewModel
 {
-    public class MainWindowViewModel
+    public class MainWindowViewModel : ViewModelBase
     {
         // Egenskaper för användarnamn och lösenord
         public string Username { get; set; }
@@ -19,6 +19,7 @@ namespace FitTack.ViewModel
         public ICommand SignInCommand { get; }
         public ICommand ForgotPasswordCommand { get; }
         public ICommand RegisterCommand { get; }
+        public RegisterWindowViewModel DataContext { get; private set; }
 
         public MainWindowViewModel()
         {
@@ -31,13 +32,21 @@ namespace FitTack.ViewModel
         // Logik för Sign In-knappen
         private void SignIn(object parameter)
         {
-            if (Username == "admin" && Password == "admin123")
+            if (Username == "admin" && Password == "Admin321!")
             {
                 MessageBox.Show("Inloggning lyckades!", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             else
             {
                 MessageBox.Show("Fel användarnamn eller lösenord.", "Fel", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
+            var viewModel = DataContext as ViewModel.RegisterWindowViewModel;
+            if (viewModel != null)
+            {
+                MessageBox.Show("hejhej");
+                
+                //  viewModel.PasswordBox_PasswordChanged /// kolla och gör rätt" 
             }
         }
 

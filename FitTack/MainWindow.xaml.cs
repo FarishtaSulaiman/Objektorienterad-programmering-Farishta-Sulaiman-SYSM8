@@ -26,19 +26,19 @@ namespace FitTack
             }
 
             // Event för PasswordBox när lösenordet ändras
-            private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
-            {
-                // Använd ett annat namn för variabeln, t.ex. "pwdBox"
-                PasswordBox? pwdBox = sender as PasswordBox;
+            //private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
+            //{
+            //    // Använd ett annat namn för variabeln, t.ex. "pwdBox"
+            //    PasswordBox? pwdBox = sender as PasswordBox;
 
-                // Kontrollerar att DataContext är satt korrekt till ViewModel
-                var viewModel = this.DataContext as MainWindowViewModel;
-                if (viewModel != null)
-                {
-                    // Uppdaterar lösenordet i ViewModel
-                    viewModel.Password = pwdBox.Password;
-                }
-            }
+            //    // Kontrollerar att DataContext är satt korrekt till ViewModel
+            //    var viewModel = this.DataContext as MainWindowViewModel;
+            //    if (viewModel != null)
+            //    {
+            //        // Uppdaterar lösenordet i ViewModel
+            //        viewModel.Password = pwdBox.Password;
+            //    }
+            //}
 
             // Inloggningslogik (för Sign In-knappen)
             private void SignIn_Click(object sender, RoutedEventArgs e)
@@ -91,13 +91,13 @@ namespace FitTack
                 }
             }
 
-            // Öppna registreringsfönstret
-            private void Register_Click(object sender, RoutedEventArgs e)
-            {
-                RegisterWindow registerWindow = new RegisterWindow();
-                registerWindow.Show();
-                this.Close(); // Stäng MainWindow
+            //// Öppna registreringsfönstret
+            //private void Register_Click(object sender, RoutedEventArgs e)
+            //{
+            //    RegisterWindow registerWindow = new RegisterWindow();
+            //    registerWindow.Show();
+            //    this.Close(); // Stäng MainWindow
             }
         }
-    }
+    
 

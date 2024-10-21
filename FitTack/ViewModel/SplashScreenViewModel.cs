@@ -9,7 +9,7 @@ using System.Windows.Input;
 
 namespace FitTack.ViewModel
 {
-    public class SplashScreenViewModel
+    public class SplashScreenViewModel : ViewModelBase
     {
 
 

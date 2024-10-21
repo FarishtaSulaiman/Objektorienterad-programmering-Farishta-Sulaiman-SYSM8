@@ -5,13 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FitTack.View" xmlns:vm="clr-namespace:FitTack.ViewModel"
         mc:Ignorable="d"
-       Title="FitTrack Splash Screen" Height="400" Width="450" 
+        Title="FitTrack Splash Screen" Height="400" Width="450" 
         WindowStartupLocation="CenterScreen" ResizeMode="NoResize"
         WindowStyle="None" AllowsTransparency="True" Background="#D3D3D3">
 
-
-    
-    
+    <Window.DataContext>
+        <!-- Bind till SplashScreenViewModel -->
+        <vm:SplashScreenViewModel />
+    </Window.DataContext>
 
     <Grid>
         <!-- Bakgrundsbild -->

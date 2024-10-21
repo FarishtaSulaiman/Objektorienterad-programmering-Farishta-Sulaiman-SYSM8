@@ -22,7 +22,8 @@ namespace FitTack.View
             public RegisterWindow()
             {
                 InitializeComponent();
-                DataContext = new ViewModel.RegisterWindowViewModel();
+            ViewModel.RegisterWindowViewModel registerWindowViewModel = new ViewModel.RegisterWindowViewModel();
+                DataContext = registerWindowViewModel;
             }
 
             // Hantera lösenordsinmatning

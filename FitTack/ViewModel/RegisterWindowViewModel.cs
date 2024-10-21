@@ -12,7 +12,7 @@ using System.Windows;
 
 namespace FitTack.ViewModel
 {
-    public class RegisterWindowViewModel
+    public class RegisterWindowViewModel : ViewModelBase
     {
 
         // Egenskaper
@@ -23,7 +23,7 @@ namespace FitTack.ViewModel
         public string SelectedCountry { get; set; }
 
         // Kommando för att registrera användaren
-        public ICommand RegisterCommand { get; }
+        public ICommand RegisterCommand { get; }   
 
         public RegisterWindowViewModel()
         {
@@ -32,7 +32,10 @@ namespace FitTack.ViewModel
 
             // Initialisering av kommando
             RegisterCommand = new RelayCommand(Register);
+
         }
+
+       
 
         // Hanterar lösenord-input från PasswordBox
         public void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
@@ -82,14 +85,27 @@ namespace FitTack.ViewModel
             // Användaren har registrerats 
             MessageBox.Show($"Användaren {Username} har registrerats framgångsrikt!", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
 
-            // Stäng registerfönstret 
-            Application.Current.Windows[0]?.Close();
+            Application.Current.MainWindow.Close();
+            OpenMainWindow();
+        }
+        private void OpenMainWindow()
+        {
+            //// stäng registerfönstret 
+            //application.current.windows[0]?.close();
 
-            // Öppna ett nytt MainWindow 
-            var mainWindow = new View.MainWindow();
-            mainWindow.Show();
+            //// öppna ett nytt mainwindow 
+            //var newmainwindow = new view.mainwindow();
+            //newmainwindow.show();
+
+            //// Skapa en ny instans av MainWindow
+            //MainWindow mainWindow = new MainWindow();
+
+            //// Sätt det nya fönstret som huvudfönster och visa det
+            //Application.Current.MainWindow = mainWindow;
+            //mainWindow.Show();
+        }
         }
     }
-}
+
     
 
