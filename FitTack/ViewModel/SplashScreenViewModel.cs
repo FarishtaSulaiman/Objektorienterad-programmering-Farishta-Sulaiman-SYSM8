@@ -11,22 +11,21 @@ namespace FitTack.ViewModel
 {
     public class SplashScreenViewModel : ViewModelBase
     {
-        private readonly IWindowFactory _windowFactory;
-        private readonly Window _splashScreenWindow;
-
         public ICommand GetStartedCommand { get; }
 
-        public SplashScreenViewModel(IWindowFactory windowFactory, Window splashScreenWindow)
+        public SplashScreenViewModel()
         {
-            _windowFactory = windowFactory;
-            _splashScreenWindow = splashScreenWindow;
             GetStartedCommand = new RelayCommand(OpenMainWindow);
         }
 
         private void OpenMainWindow(object parameter)
         {
-            _windowFactory.ShowMainWindow();  // Visa MainWindow
-            _splashScreenWindow.Close();      // Stäng SplashScreen
+            // Öppna MainWindow och stäng SplashScreen
+            var mainWindow = new MainWindow();
+            mainWindow.Show();
+
+            // Stäng nuvarande fönster (SplashScreen)
+            Application.Current.MainWindow?.Close();
         }
     }
 }
