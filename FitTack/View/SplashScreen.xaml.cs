@@ -1,4 +1,6 @@
-﻿using System;
+﻿using FitTack.MVVM;
+using FitTack.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,13 +21,10 @@ namespace FitTack.View
     /// </summary>
     public partial class SplashScreen : Window
     {
-            public SplashScreen()
-            {
-                InitializeComponent();
-            }
-
-
+        public SplashScreen()
+        {
+            InitializeComponent();
+            DataContext = new SplashScreenViewModel(new WindowFactory(), this);  // Skicka referens till fönstret
         }
+    }
 }
-    
-

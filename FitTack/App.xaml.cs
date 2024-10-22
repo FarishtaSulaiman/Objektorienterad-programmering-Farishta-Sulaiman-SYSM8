@@ -2,7 +2,7 @@
 using System.Configuration;
 using System.Data;
 using System.Windows;
-
+using FitTack.View;
 namespace FitTack
 {
     /// <summary>
@@ -10,24 +10,13 @@ namespace FitTack
     /// </summary>
     public partial class App : Application
     {
-            protected override void OnStartup(StartupEventArgs e)
-            {
-                base.OnStartup(e);
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            base.OnStartup(e);
 
-                // Skapa en instans av WindowFactory
-                var windowFactory = new MVVM.WindowFactory();
-
-                // Skapa MainWindowViewModel och injicera windowFactory
-                var mainWindowViewModel = new MainWindowViewModel(windowFactory);
-
-                // Skapa och visa MainWindow
-                var mainWindow = new MainWindow
-                {
-                    DataContext = mainWindowViewModel
-                };
-
-                mainWindow.Show();
-            }
+            // Skapa och visa SplashScreen
+            var splashScreen = new View.SplashScreen();
+            splashScreen.Show();
         }
     }
-
+}
